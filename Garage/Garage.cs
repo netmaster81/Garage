@@ -25,7 +25,6 @@ namespace Garage
         {
             return GetEnumerator();
         }
-
         public List<string> GaragVehType() 
         {
             // it is returned list with all vehicle type
@@ -68,6 +67,7 @@ namespace Garage
             Vehicles.ForEach(v => v.Print());
             
         }
+
         
 
     }

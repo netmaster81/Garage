@@ -109,25 +109,25 @@ namespace Garage
             }
 
         }
-
         private static bool keepGoingOrGoBackOrexit()
         {
-            Console.WriteLine("for stay in the same subsystem enter 1");
-            Console.WriteLine("for go back enter any number:");
-            Console.WriteLine("for exit enter 0:");
-            int input = InputIsInteger();
-            switch (input)
+            Console.WriteLine("Repeat task enter '1' Exit '0' MainMenu press any key ");
+            
+            string input = InputNotEMptyOrNull();
+            int x;
+            if (int.TryParse(input, out x))
             {
-                case 1:
-                    return true;
-                case 0:
-                    Environment.Exit(0);
-                    break;
-
+                switch (x)
+                {
+                    case 1:
+                        return true;
+                    case 0:
+                        Environment.Exit(0);
+                        break;
+                }
             }
             return false;
         }
-
         private static void SearchMenu(this GaragHandler gh)
         {
             Console.Clear();
@@ -195,7 +195,6 @@ namespace Garage
             }
 
         }
-
         public static void CheckIfVehickeIsAdded(this Garage<Vehicle> customGarage, Vehicle v)
         {
             if (customGarage.Add(v))
@@ -258,5 +257,10 @@ namespace Garage
 
 
 
+
+
+
+
+            
 
 

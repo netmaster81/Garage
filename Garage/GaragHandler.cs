@@ -26,18 +26,18 @@ namespace Garage
             if (Search("Car").Count() != 0) Console.WriteLine($"car: {Search("Car").Count()}");
             if (Search("Motorcycle").Count() != 0) Console.WriteLine($"motorcycle: {Search("Motorcycle").Count()}");
         }
+        public void PrintAll()
+        {
+            var orderbytype = CustomGarage.Vehicles.OrderBy(v => v.TypeName).ToList();
+            foreach (var item in CustomGarage.Vehicles) item.Print();
+           
+        }
         public List<Vehicle> Search(string color, int wheelNumber)
         {
             return CustomGarage.Vehicles.Where(v => v.Color == color)
                             .Select(v => v)
                             .Where(vt => vt.NumberOfWheels == wheelNumber)
                             .Select(v => v).ToList();
-        }
-        public void PrintAll()
-        {
-            var orderbytype = CustomGarage.Vehicles.OrderBy(v => v.TypeName).ToList();
-            foreach (var item in CustomGarage.Vehicles) item.Print();
-           
         }
         public List<Vehicle> Search(string vehicleType, string color, int wheelNumber)
         {
