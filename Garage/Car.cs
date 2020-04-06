@@ -1,7 +1,17 @@
-﻿namespace Garage
+﻿using System;
+namespace Garage
 {
-    internal class Car : Vehicle
+    public class Car : Vehicle
     {
+        public int NumberOfDoor { get; set; }
 
+        public Car()
+        {
+            TypeName = "Car";
+        }
+        public override string ToString => base.ToString +
+                                            $"\nDoor#:{NumberOfDoor}  ";
+        
+        
     }
 }
