@@ -83,15 +83,17 @@ namespace Garage
                 case 4:
                     do
                     {
-                        Console.WriteLine("Please enter a Registration Number:");
-                        string inputString = InputNotEMptyOrNull();
-                        
-                        if (gh.RemoveVehicle(inputString))
+                        if (gh.Count()==0)
                         {
-                            Console.WriteLine("your Item has been removed!!");
+                            Console.WriteLine("your Garage is Empty");
                         }
-                        else Console.WriteLine("You enter a wrong Register number:");
-                            
+                        else 
+                        {
+                            Console.WriteLine("Please enter a Registration Number:");
+                            string inputString = InputNotEMptyOrNull();
+                            gh.RemoveVehicle(inputString);
+                        }
+                       
                     } while (keepGoingOrGoBackOrexit());
                     gh.MainMenu();
                     break;

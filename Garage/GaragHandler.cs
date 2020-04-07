@@ -6,17 +6,24 @@ namespace Garage
 {
     public class GaragHandler
     {
+        
         private Garage<Vehicle> CustomGarage;
         public int Capacity { get; set; }
         public GaragHandler()
         {
-                
+
         }
         public GaragHandler(int capacity)
         {
             CustomGarage = new Garage<Vehicle>();
             Capacity = capacity;
         }
+
+        public int Count()
+        {
+            return CustomGarage.Count();
+        }
+        
         public void PrintlistNumberOfType()
         {
             
@@ -106,10 +113,23 @@ namespace Garage
         public bool RemoveVehicle(string regNum)
         {
             var itemToRemove = CustomGarage.Vehicles.SingleOrDefault(r => r.RegisterNumber == regNum.ToUpper());
-            if (CustomGarage.Vehicles.Remove(itemToRemove)) return true;
-            return false;
+            
+            if (CustomGarage.Vehicles.Remove(itemToRemove))
+            {
+                Console.WriteLine("your Item has been removed!!");
+                return true;
+            }
+            else 
+            {
+                Console.WriteLine("You enter a wrong Register number:");
+                return false;
+            }
            
         }
+
+
+
+       
 
     }
 
