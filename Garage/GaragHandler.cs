@@ -103,16 +103,12 @@ namespace Garage
 
         }
 
-        public bool RemoveVehicle(string regNum) 
+        public bool RemoveVehicle(string regNum)
         {
-            var itemToRemove = CustomGarage.Vehicles.SingleOrDefault(r => r.RegisterNumber == regNum);
-            if (itemToRemove != null)
-            {
-                CustomGarage.Vehicles.Remove(itemToRemove);
-                return true;
-            }
+            var itemToRemove = CustomGarage.Vehicles.SingleOrDefault(r => r.RegisterNumber == regNum.ToUpper());
+            if (CustomGarage.Vehicles.Remove(itemToRemove)) return true;
             return false;
-
+           
         }
 
     }
@@ -120,5 +116,10 @@ namespace Garage
 }
                     
 
+               
+
+
+
   
+
         

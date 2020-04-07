@@ -85,13 +85,13 @@ namespace Garage
                     {
                         Console.WriteLine("Please enter a Registration Number:");
                         string inputString = InputNotEMptyOrNull();
-                        var searResult = gh.SearchByRegisterNumber(inputString).ToString();
-                        if (searResult != "")
+                        
+                        if (gh.RemoveVehicle(inputString))
                         {
-                            gh.RemoveVehicle(inputString);
                             Console.WriteLine("your Item has been removed!!");
                         }
                         else Console.WriteLine("You enter a wrong Register number:");
+                            
                     } while (keepGoingOrGoBackOrexit());
                     gh.MainMenu();
                     break;
